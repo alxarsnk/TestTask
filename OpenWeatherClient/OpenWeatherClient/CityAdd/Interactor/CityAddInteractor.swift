@@ -39,6 +39,7 @@ class CityAddInteractor: CityAddInteractorInput {
                 } else {
                     let index = self.coreDataService.getModelIndex(model: cityModel)
                     self.coreDataService.updateModel(with: cityModel, at: index!)
+                    self.presenter.showAlert(title: "Oops..", message: "This city already exists \n We refresh info about it")
                 }
             
             } else {

@@ -12,9 +12,15 @@ class CityListInteractor: CityListInteractorInput {
     
     var presenter: CityListInteractorOutput!
     var coreDataService: CoreDataServiceProtocol!
+    var openWeatherService: OpenWeatherServiceProtocol!
+    var locationManager: LocationManagerProtocol!
     
     
     //MARK: - CityListInteractorInput
+    
+    func initialSetup() {
+        locationManager.intialSetup()
+    }
     
     func getDataCount() -> Int {
         return coreDataService.fetchModels().count
@@ -37,4 +43,25 @@ class CityListInteractor: CityListInteractorInput {
         coreDataService.updateModel(with: model, at: index)
     }
     
+    func makeRequestForCity(city: String) {
+       
+        openWeatherService.makeRequestForCIty(city: city) { [unowned self] (cityModel) in
+            DispatchQueue.main.async {
+                let index = self.coreDataService.getModelIndex(model: cityModel!)
+                self.coreDataService.updateModel(with: cityModel!, at: index!)
+                  
+            }
+        }
+    }
+    
+    func getMyCurrentPosition() {
+        locationManager.getMyPosition { [unowned self] (latitude, longitude) in
+            self.openWeatherService.makeRequestForCoordinates(latitude: latitude, longitude: longitude, complition: { (city) in
+                
+                DispatchQueue.main.async {
+                    self.presenter.showlAler(title: "Your city", message: city!)
+                }
+            })
+        }
+    }
 }

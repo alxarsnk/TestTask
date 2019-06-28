@@ -10,4 +10,5 @@ import Foundation
 
 protocol CityListViewInput: AnyObject {
     
+     func showlAler(title: String, message: String)
 }

@@ -10,8 +10,6 @@ import Foundation
 
 protocol CityAddViewOutput: AnyObject {
     
-    func setupInitialState()
-    
     func isValid(string: String?) -> Bool
     
     func makeRequestForCity(city: String)

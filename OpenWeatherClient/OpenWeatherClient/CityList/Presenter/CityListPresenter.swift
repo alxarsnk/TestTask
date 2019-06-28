@@ -16,8 +16,8 @@ class CityListPresenter: CityListViewOutput, CityListInteractorOutput {
     
     //MARK: - CityListViewOutput
     
-    func setupInitialState() {
-        
+    func initialSetup() {
+        interactor.initialSetup()
     }
     
     func getDataCount() -> Int {
@@ -38,5 +38,19 @@ class CityListPresenter: CityListViewOutput, CityListInteractorOutput {
     
     func updateItem(with model: CityViewModel, at index: Int) {
         interactor.updateItem(with: model, at: index)
+    }
+    
+    func makeRequestForCity(city: String) {
+        interactor.makeRequestForCity(city: city)
+    }
+    
+    func getMyCurrentPosition() {
+        interactor.getMyCurrentPosition()
+    }
+    
+    //MARK: - CityListInteractorOutput
+    
+    func showlAler(title: String, message: String) {
+        view.showlAler(title: title, message: message)
     }
 }

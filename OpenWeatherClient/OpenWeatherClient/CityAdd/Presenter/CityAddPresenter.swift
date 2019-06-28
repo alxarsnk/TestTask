@@ -15,11 +15,6 @@ class CityAddPresenter: CityAddViewOutput, CityAddInteractorOutput {
     var router: CityAddRouterInput!
     
     //MARK: - CityAddViewOutput
-    
-    func setupInitialState() {
-        
-    }
-    
     func isValid(string: String?) -> Bool {
        return interactor.isValid(string: string)
     }

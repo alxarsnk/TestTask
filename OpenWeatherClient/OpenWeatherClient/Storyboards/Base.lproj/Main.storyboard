@@ -118,11 +118,20 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cities" id="PEi-Tw-N7g">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="wZq-5I-vBs">
-                            <connections>
-                                <segue destination="JzE-Ri-jLF" kind="show" id="8iu-7f-1BJ"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" systemItem="add" id="wZq-5I-vBs">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="JzE-Ri-jLF" kind="show" id="8iu-7f-1BJ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="My location" id="9ce-0c-IlU">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="myLocationButtonPressed:" destination="BYZ-38-t0r" id="78T-RZ-6gH"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="kzs-pT-O8Z" id="qIf-sC-Aiy"/>
@@ -146,24 +155,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bsA-G3-z6X">
-                                <rect key="frame" x="20" y="240" width="374" height="30"/>
+                                <rect key="frame" x="20" y="160" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feW-w2-Fic">
-                                <rect key="frame" x="183" y="292" width="48" height="30"/>
-                                <state key="normal" title="Search"/>
+                                <rect key="frame" x="178.5" y="212" width="57" height="30"/>
+                                <state key="normal" title="Add city">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="searchButtonPressed:" destination="JzE-Ri-jLF" eventType="touchUpInside" id="3K3-0N-VYo"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bsA-G3-z6X" firstAttribute="leading" secondItem="ley-RO-dvh" secondAttribute="leading" constant="20" id="DU4-Xp-EEg"/>
                             <constraint firstItem="feW-w2-Fic" firstAttribute="centerX" secondItem="ZBQ-MV-wva" secondAttribute="centerX" id="MLw-2N-VOd"/>
-                            <constraint firstItem="bsA-G3-z6X" firstAttribute="top" secondItem="ley-RO-dvh" secondAttribute="top" constant="100" id="Muz-8q-lU3"/>
+                            <constraint firstItem="bsA-G3-z6X" firstAttribute="top" secondItem="ley-RO-dvh" secondAttribute="top" constant="20" id="Muz-8q-lU3"/>
                             <constraint firstItem="ley-RO-dvh" firstAttribute="trailing" secondItem="bsA-G3-z6X" secondAttribute="trailing" constant="20" id="QrM-ML-j7a"/>
                             <constraint firstItem="feW-w2-Fic" firstAttribute="top" secondItem="bsA-G3-z6X" secondAttribute="bottom" constant="22" id="oqL-FI-sOQ"/>
                         </constraints>

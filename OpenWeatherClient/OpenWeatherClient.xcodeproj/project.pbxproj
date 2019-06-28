@@ -38,6 +38,7 @@
 		1BD9268322C60E9200DA4CBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD9268122C60E9200DA4CBF /* LaunchScreen.storyboard */; };
 		1BD9268E22C60E9200DA4CBF /* OpenWeatherClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD9268D22C60E9200DA4CBF /* OpenWeatherClientTests.swift */; };
 		1BD9269922C60E9200DA4CBF /* OpenWeatherClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD9269822C60E9200DA4CBF /* OpenWeatherClientUITests.swift */; };
+		1BFD854B22C66D3900E0CE43 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFD854A22C66D3900E0CE43 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		1BD9269422C60E9200DA4CBF /* OpenWeatherClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenWeatherClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD9269822C60E9200DA4CBF /* OpenWeatherClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherClientUITests.swift; sourceTree = "<group>"; };
 		1BD9269A22C60E9200DA4CBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BFD854A22C66D3900E0CE43 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 			children = (
 				1B604FFF22C61A15002F73A2 /* OpenWeatherService.swift */,
 				1B60500622C64A46002F73A2 /* CoreDataService.swift */,
+				1BFD854A22C66D3900E0CE43 /* LocationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -273,8 +276,8 @@
 				1B60500122C639E7002F73A2 /* Models */,
 				1B604FFE22C618F5002F73A2 /* Services */,
 				1B604FFD22C618D1002F73A2 /* Storyboards */,
-				1B604FE422C618B4002F73A2 /* CityAdd */,
 				1B604FC922C6181F002F73A2 /* CityList */,
+				1B604FE422C618B4002F73A2 /* CityAdd */,
 				1BD9267522C60E9000DA4CBF /* AppDelegate.swift */,
 				1BD9267F22C60E9200DA4CBF /* Assets.xcassets */,
 				1BD9268422C60E9200DA4CBF /* Info.plist */,
@@ -458,6 +461,7 @@
 				1B604FFB22C618B4002F73A2 /* CityAddRouter.swift in Sources */,
 				1B604FD922C6181F002F73A2 /* CityListPresenter.swift in Sources */,
 				1B604FDB22C6181F002F73A2 /* CityListViewController.swift in Sources */,
+				1BFD854B22C66D3900E0CE43 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

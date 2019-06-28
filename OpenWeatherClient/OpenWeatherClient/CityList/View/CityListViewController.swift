@@ -20,7 +20,8 @@ class CityListViewController: UIViewController, CityListViewInput {
         
         tableView.delegate = self
         tableView.dataSource = self
-        presenter.setupInitialState()
+        presenter.initialSetup()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -28,8 +29,24 @@ class CityListViewController: UIViewController, CityListViewInput {
         tableView.reloadData()
     }
    
+    @IBAction func myLocationButtonPressed(_ sender: Any) {
+        presenter.getMyCurrentPosition()
+    }
+    
+    private func showAlert(with title: String, message: String) {
+        
+        let okButtonTitle = "OK"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: okButtonTitle, style: .default, handler: nil)
+        alert.addAction(alertAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     //MARK: - CityListViewInput
     
+    func showlAler(title: String, message: String) {
+        showAlert(with: title, message: message)
+    }
     
 }
 
@@ -61,6 +78,16 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .fade)
             
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.cellForRow(at: indexPath) as! CityListTableViewCell
+        let cityName = cell.cityName.text
+        presenter.makeRequestForCity(city: cityName!)
+        tableView.reloadRows(at: [indexPath], with: .fade)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
     }
     
     

@@ -12,14 +12,14 @@ import Foundation
 protocol OpenWeatherServiceProtocol {
    
     func makeRequestForCIty(city: String, complition: @escaping(CityViewModel?)->())
+    
+    func makeRequestForCoordinates(latitude: String, longitude: String, complition: @escaping (String?)->())
 }
 
 class OpenWeatherService: OpenWeatherServiceProtocol {
     
     fileprivate var apiKey = "48a6235c7a21fc8fcad5bb2455a359c6"
     fileprivate var baseURL = "http://api.openweathermap.org/data/2.5/weather?"
-    
-    //http://api.openweathermap.org/data/2.5/weather?q=Kazan&APPID=48a6235c7a21fc8fcad5bb2455a359c6
     
     func makeRequestForCIty(city: String, complition: @escaping(CityViewModel?)->()) {
         
@@ -51,6 +51,30 @@ class OpenWeatherService: OpenWeatherServiceProtocol {
                 returnModel = cityModel
             }
             complition(returnModel!)
+        }
+        task.resume()
+    }
+    
+    func makeRequestForCoordinates(latitude: String, longitude: String, complition: @escaping (String?)->()) {
+        
+        var returnCity: String?
+        let urlString = "\(baseURL)lat=\(latitude)&lon=\(longitude)&units=metric&APPID=\(apiKey)"
+        guard let url = URL(string: urlString) else {
+            complition(nil)
+            return}
+        let urlRequest = URLRequest(url: url)
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest) { (data, responce, error) in
+            
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                guard let data = data else {return complition(nil)}
+                guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {return complition(nil)}
+                guard let name = json["name"] else {return complition(nil)}
+                returnCity = name as! String
+            }
+            complition(returnCity!)
         }
         task.resume()
     }

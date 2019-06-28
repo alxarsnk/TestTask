@@ -10,6 +10,8 @@ import Foundation
 
 protocol CityListInteractorInput: AnyObject {
     
+    func initialSetup()
+    
     func getDataCount() -> Int
     
     func getData(at index: Int) -> City
@@ -19,4 +21,8 @@ protocol CityListInteractorInput: AnyObject {
     func removeItem(at index: Int)
     
     func updateItem(with model: CityViewModel, at index: Int)
+    
+    func makeRequestForCity(city: String)
+    
+    func getMyCurrentPosition()
 }

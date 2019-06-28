@@ -10,7 +10,7 @@ import Foundation
 
 protocol CityListViewOutput: AnyObject {
     
-    func setupInitialState()
+    func initialSetup()
     
     func getDataCount() -> Int
     
@@ -21,4 +21,8 @@ protocol CityListViewOutput: AnyObject {
     func removeItem(at index: Int)
     
     func updateItem(with model: CityViewModel, at index: Int)
+    
+    func makeRequestForCity(city: String)
+    
+    func getMyCurrentPosition()
 }

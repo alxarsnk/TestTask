@@ -26,6 +26,8 @@ class CityListModuleConfigurator: NSObject {
         let interactor = CityListInteractor()
         let router = CityListRouter()
         let coreDataService = CoreDataService()
+        let openWeatherService = OpenWeatherService()
+        let locationManager = LocationManager()
         
         viewController.presenter = presenter
         
@@ -35,7 +37,9 @@ class CityListModuleConfigurator: NSObject {
 
         interactor.presenter = presenter
         interactor.coreDataService = coreDataService
-
+        interactor.openWeatherService = openWeatherService
+        interactor.locationManager = locationManager
+ 
         router.view = viewController
     }
 }

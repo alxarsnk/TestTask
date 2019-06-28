@@ -10,5 +10,6 @@ import Foundation
 
 protocol CityListInteractorOutput: AnyObject {
     
+    func showlAler(title: String, message: String)
    
 }

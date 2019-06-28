@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import CoreLocation
+ 
 class CityAddViewController: UIViewController, CityAddViewInput {
     
     @IBOutlet weak var textField: UITextField!
@@ -17,10 +18,12 @@ class CityAddViewController: UIViewController, CityAddViewInput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
         
-        presenter.setupInitialState()
+        
     }
 
+    
    
     @IBAction func searchButtonPressed(_ sender: Any) {
         
@@ -38,6 +41,11 @@ class CityAddViewController: UIViewController, CityAddViewInput {
         let alertAction = UIAlertAction(title: okButtonTitle, style: .default, handler: nil)
         alert.addAction(alertAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func configureView() {
+        self.navigationItem.title = "Add cities"
+        
     }
     //MARK: - CityAddViewInput
     
