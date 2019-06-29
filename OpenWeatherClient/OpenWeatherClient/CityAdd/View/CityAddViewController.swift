@@ -19,8 +19,6 @@ class CityAddViewController: UIViewController, CityAddViewInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        
-        
     }
 
     

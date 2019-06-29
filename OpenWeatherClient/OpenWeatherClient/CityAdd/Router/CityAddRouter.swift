@@ -17,6 +17,4 @@ class CityAddRouter: CityAddRouterInput {
     func popViewController() {
         view.navigationController?.popViewController(animated: true)
     }
-    
-    
 }

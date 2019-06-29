@@ -15,7 +15,6 @@ class CityListInteractor: CityListInteractorInput {
     var openWeatherService: OpenWeatherServiceProtocol!
     var locationManager: LocationManagerProtocol!
     
-    
     //MARK: - CityListInteractorInput
     
     func initialSetup() {
@@ -49,7 +48,6 @@ class CityListInteractor: CityListInteractorInput {
             DispatchQueue.main.async {
                 let index = self.coreDataService.getModelIndex(model: cityModel!)
                 self.coreDataService.updateModel(with: cityModel!, at: index!)
-                  
             }
         }
     }

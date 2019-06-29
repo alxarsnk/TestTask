@@ -13,5 +13,4 @@ protocol CityAddInteractorInput: AnyObject {
     func isValid(string: String?) -> Bool
     
     func makeRequestForCity(city: String)
-
 }

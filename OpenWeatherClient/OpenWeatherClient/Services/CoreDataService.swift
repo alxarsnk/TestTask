@@ -130,6 +130,5 @@ class CoreDataService: CoreDataServiceProtocol {
         } catch let error {
             print(error.localizedDescription)
         }
-        
     }
 }

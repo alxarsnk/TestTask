@@ -23,5 +23,4 @@ class CityListTableViewCell: UITableViewCell {
         windSpeedValue.text = String(model.windSpeed)
         windDirectionValue.text = model.windDirection
     }
-
 }

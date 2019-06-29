@@ -47,7 +47,6 @@ class CityListViewController: UIViewController, CityListViewInput {
     func showlAler(title: String, message: String) {
         showAlert(with: title, message: message)
     }
-    
 }
 
 extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -76,7 +75,6 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
             
             presenter.removeItem(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
         }
     }
     
@@ -87,8 +85,5 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         presenter.makeRequestForCity(city: cityName!)
         tableView.reloadRows(at: [indexPath], with: .fade)
         tableView.deselectRow(at: indexPath, animated: true)
-        
     }
-    
-    
 }

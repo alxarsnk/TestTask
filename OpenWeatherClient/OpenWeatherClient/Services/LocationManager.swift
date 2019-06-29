@@ -34,8 +34,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
         longitude = String(currentLocation.longitude)
     }
     
-    
-    
     func intialSetup () {
         
         locationManager.delegate = self
@@ -49,8 +47,5 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
           DispatchQueue.main.asyncAfter(deadline: .now()) {
             complition(self.latitude, self.longitude)
         }
-        
     }
-    
-    
 }
